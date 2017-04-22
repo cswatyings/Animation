@@ -34,7 +34,7 @@ for i in range(24):
 
 
 
-###########################  MAIN   ANIMATION  #############################################################
+###########################  MAIN   ANIMATION PART #############################################################
 fig = plt.figure(figsize=(15,15))
 ax = fig.add_subplot(111)
 
@@ -70,11 +70,12 @@ point = m.scatter(x, y,s= 0,
                   alpha = 0.5, 
                   c = 'white',zorder = 10)
 
-
+### not neccesarily needed in this map###
 '''def init():
     point.set_data([], [])
     return point,'''
 
+### main function for updating the map###
 def animate(i):
     
     lon = dc3.get_group(i)['lon'].values
@@ -92,7 +93,8 @@ def animate(i):
 
 #    ani = animation.FuncAnimation(fig, update_plot, frames=xrange(numframes),
 #                                  fargs=(color_data, scat))
-    
+
+### A reference example from the Internet###
 '''def update(frame_number):
     current_year = START_YEAR + (frame_number % (LAST_YEAR - START_YEAR + 1))
     
@@ -105,8 +107,7 @@ def animate(i):
     
     year_text.set_text(str(current_year))'''
 
-# # # Construct the animation, using the update function as the animation
-# # # director.
+
 ani = animation.FuncAnimation(fig, animate,
                               interval=800, frames=24, 
                               blit = False, repeat = False)    
